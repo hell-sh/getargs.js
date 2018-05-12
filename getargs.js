@@ -16,10 +16,7 @@ if(!("getargs" in window.location))
 					for(var i in searchArr)
 					{
 						var varArr = searchArr[i].split("=");
-						if(varArr.length == 2)
-						{
-							getargs[decodeURIComponent(varArr[0])] = decodeURIComponent(varArr[1]); 
-						}
+						getargs[decodeURIComponent(varArr[0])] = (varArr.length == 2 ? decodeURIComponent(varArr[1]) : "");
 					}
 				}
 				return getargs;
