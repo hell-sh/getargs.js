@@ -15,8 +15,12 @@ if(!("getargs" in window.location))
 					var searchArr = window.location.search.replace("?", "").split("&");
 					for(var i in searchArr)
 					{
-						var varArr = searchArr[i].split("=");
-						getargs[decodeURIComponent(varArr[0])] = (varArr.length == 2 ? decodeURIComponent(varArr[1]) : "");
+						var varArr = searchArr[i].split("="), key = decodeURIComponent(varArr[0]);
+						if(key == "")
+						{
+							continue;
+						}
+						getargs[key] = (varArr.length == 2 ? decodeURIComponent(varArr[1]) : "");
 					}
 				}
 				return getargs;
