@@ -6,12 +6,18 @@
 <body>
 	<h1>getargs.js Example</h1>
 	<ul>
-		<li><button onclick="alert(JSON.stringify(location.getargs));">Alert location.getargs</button></li>
-		<li><button onclick="location.getargs={'test': 'true', 'from': 'object'};">Set location.getargs to object</button></li>
-		<li><button onclick="location.getargs='?test=true&from=string';">Set location.getargs to string</button></li>
-		<li><button onclick="location.getargs=undefined;">Set location.getargs to undefined</button></li>
-		<li><button onclick="window.getargsoptions.reload=false;location.getargs={'test': 'true', 'from': 'object', 'reload': false};window.getargsoptions.reload=true;">Set location.getargs without reload</button></li>
+		<li><button onclick="alert(JSON.stringify(location.getargs));">Alert getargs</button></li>
+		<li><button onclick="location.getargs={'test': 'true', 'from': 'object'};">Set getargs to object</button></li>
+		<li><button onclick="location.getargs='?test=true&from=string';">Set getargs to string</button></li>
+		<li><button onclick="location.getargs=undefined;">Set getargs to undefined</button></li>
+		<li><button onclick="window.getargs.options.pushState=true;location.getargs={'test': 'true', 'from': 'object', 'reload': false};window.getargs.options.pushState=false;">Set getargs to object using history.pushState</button></li>
 	</ul>
 	<script src="getargs.js"></script>
+	<script>
+		window.getargs.registerChangeHandler(function()
+		{
+			console.log("getargs has been changed to",window.getargs.get());
+		});
+	</script>
 </body>
 </html>
