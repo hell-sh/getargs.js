@@ -6,9 +6,11 @@
 <body>
 	<h1>getargs.js Example</h1>
 	<ul>
-		<li><a href="#" onclick="alert(JSON.stringify(location.getargs));">Alert location.getargs</a></li>
-		<li><a href="#" onclick="window.getargsoptions.reload=true;location.getargs={'test': 'true', 'strings': 'Check ✓'};">Set location.getargs</a></li>
-		<li><a href="#" onclick="window.getargsoptions.reload=false;location.getargs={'test': 'true', 'strings': 'Check ✓'};">Set location.getargs without reload</a></li>
+		<li><button onclick="alert(JSON.stringify(location.getargs));">Alert location.getargs</button></li>
+		<li><button onclick="location.getargs={'test': 'true', 'from': 'object'};">Set location.getargs to object</button></li>
+		<li><button onclick="location.getargs='?test=true&from=string';">Set location.getargs to string</button></li>
+		<li><button onclick="location.getargs=undefined;">Set location.getargs to undefined</button></li>
+		<li><button onclick="window.getargsoptions.reload=false;location.getargs={'test': 'true', 'from': 'object', 'reload': false};window.getargsoptions.reload=true;">Set location.getargs without reload</button></li>
 	</ul>
 	<script src="getargs.js"></script>
 </body>

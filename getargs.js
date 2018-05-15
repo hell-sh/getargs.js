@@ -10,30 +10,51 @@ window.getargsoptions = {
 
 (function()
 {
-	var getargs;
+	var searchToObject = function(search)
+	{
+		var obj = {},
+		searchArr = search.replace("?", "").split("&");
+		for(var i in searchArr)
+		{
+			var varArr = searchArr[i].split("="), key = decodeURIComponent(varArr[0]);
+			if(key == "")
+			{
+				continue;
+			}
+			obj[key] = (varArr.length == 2 ? decodeURIComponent(varArr[1]) : "");
+		}
+		return obj;
+	},
+	getargs;
 	Object.defineProperty(window.location, "getargs",
 	{
 		get: function()
 		{
 			if(getargs === undefined)
 			{
-				getargs = {};
-				var searchArr = window.location.search.replace("?", "").split("&");
-				for(var i in searchArr)
-				{
-					var varArr = searchArr[i].split("="), key = decodeURIComponent(varArr[0]);
-					if(key == "")
-					{
-						continue;
-					}
-					getargs[key] = (varArr.length == 2 ? decodeURIComponent(varArr[1]) : "");
-				}
+				getargs = searchToObject(window.location.search.toString());
 			}
 			return getargs;
 		},
 		set: function(newval)
 		{
-			getargs = newval;
+			if(newval === undefined)
+			{
+				getargs = {};
+			}
+			else if(typeof newval == "object")
+			{
+				getargs = newval;
+			}
+			else if(typeof newval == "string")
+			{
+				getargs = searchToObject(newval);
+			}
+			else
+			{
+				console.warn("Invalid getargs value:", newval);
+				return;
+			}
 			var searchArr = [];
 			for(var key in getargs)
 			{
