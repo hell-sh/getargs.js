@@ -7,7 +7,8 @@
 	<h1>getargs.js Example</h1>
 	<ul>
 		<li><a href="#" onclick="alert(JSON.stringify(location.getargs));">Alert location.getargs</a></li>
-		<li><a href="#" onclick="location.getargs={'test': 'true', 'strings': 'Check ✓'};">Set location.getargs</a></li>
+		<li><a href="#" onclick="window.getargsoptions.reload=true;location.getargs={'test': 'true', 'strings': 'Check ✓'};">Set location.getargs</a></li>
+		<li><a href="#" onclick="window.getargsoptions.reload=false;location.getargs={'test': 'true', 'strings': 'Check ✓'};">Set location.getargs without reload</a></li>
 	</ul>
 	<script src="getargs.js"></script>
 </body>
