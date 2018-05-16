@@ -1,4 +1,4 @@
-/* getargs.js v1.1 - Copyright (c) 2018, Hellsh Ltd. */
+/* getargs.js v1.2 - Copyright (c) 2018, Hellsh Ltd. */
 
 (function()
 {
@@ -6,7 +6,7 @@
 	console.assert(!("getargs" in window));
 	console.assert("location" in window);
 	console.assert(!("getargs" in window));
-	var getargs_value, previous_search = window.location.search.toString(), changeHandlers = [],
+	var previous_search = window.location.search.toString(), changeHandlers = [],
 	changeMonitor = function()
 	{
 		if(changeHandlers.length == 0)
@@ -70,33 +70,27 @@
 		},
 		get: function(key)
 		{
-			if(getargs_value === undefined)
-			{
-				getargs_value = window.getargs.searchToObject(window.location.search.toString());
-			}
+			let object = window.getargs.searchToObject(window.location.search.toString());
 			if(key !== undefined)
 			{
-				return getargs_value[key];
+				return object[key];
 			}
-			return getargs_value;
+			return object;
 		},
 		set: function(key, val)
 		{
+			let object = {};
 			if(val === undefined)
 			{
-				if(key === undefined)
+				if(typeof key == "object")
 				{
-					getargs_value = {};
-				}
-				else if(typeof key == "object")
-				{
-					getargs_value = key;
+					object = key;
 				}
 				else if(typeof key == "string")
 				{
-					getargs_value = window.getargs.searchToObject(key);
+					object = window.getargs.searchToObject(key);
 				}
-				else
+				else if(key !== undefined)
 				{
 					console.error("You can't set getargs to", typeof key);
 					return;
@@ -104,9 +98,10 @@
 			}
 			else
 			{
-				window.getargs.get()[key] = val;
+				object = window.getargs.get();
+				object[key] = val;
 			}
-			let search = window.getargs.objectToSearch(getargs_value);
+			let search = window.getargs.objectToSearch(object);
 			if(window.getargs.options.pushState)
 			{
 				var url = window.location.pathname.toString() + "?" + search, hash = window.location.hash.toString().replace("#", "");
