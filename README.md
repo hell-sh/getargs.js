@@ -1,6 +1,6 @@
 # getargs.js
 
-A javascript library for easily reading and modifying GET arguments.
+A Javascript library for easily reading and modifying GET arguments.
 
 [[Example]](https://hellshltd.github.io/getargs.js/) [[Download]](https://raw.githubusercontent.com/hellshltd/getargs.js/master/getargs.js)
 
