@@ -2,7 +2,15 @@
 
 A Javascript library for easily reading and modifying GET arguments.
 
-[[Example]](https://hellshltd.github.io/getargs.js/) [[Download]](https://raw.githubusercontent.com/hellshltd/getargs.js/master/getargs.js)
+[View the demo.](https://hellshltd.github.io/getargs.js/)
+
+## Installing
+
+You can either load the script from cdn.hell.sh using
+
+    <script src="https://cdn.hell.sh/getargs.js/1.2/getargs.js" integrity="sha384-0ICTc2hkA+jObawYcAu76Pzz4F/nY+xnMBC4feAlEVg3PDS8woW5RuhT977+0s4K" crossorigin="anonymous"></script>
+
+or you [download the getargs.js](https://raw.githubusercontent.com/hellshltd/getargs.js/master/getargs.js) and host it yourself.
 
 ## Reading
 
