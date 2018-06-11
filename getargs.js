@@ -1,4 +1,4 @@
-/* getargs.js v1.2 - Copyright (c) 2018, Hellsh Ltd. */
+/* getargs.js 1.3 — Copyright (c) 2018, Hellsh Ltd. — https://github.com/hellshltd/getargs.js */
 
 (function()
 {
@@ -101,6 +101,16 @@
 				object = window.getargs.get();
 				object[key] = val;
 			}
+			return window.getargs.updateSearch(object);
+		},
+		remove: function(key)
+		{
+			let object = window.getargs.get();
+			delete object[key];
+			return window.getargs.updateSearch(object);
+		},
+		updateSearch: function(object)
+		{
 			let search = window.getargs.objectToSearch(object);
 			if(window.getargs.options.pushState)
 			{

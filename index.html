@@ -10,9 +10,11 @@
 		<li><button onclick="location.getargs={'test': 'true', 'from': 'object'};">Set getargs to object</button></li>
 		<li><button onclick="location.getargs='?test=true&from=string';">Set getargs to string</button></li>
 		<li><button onclick="location.getargs=undefined;">Set getargs to undefined</button></li>
+		<li><button onclick="window.getargs.remove('test');">Remove 'test'</button></li>
 		<li><button onclick="window.getargs.options.pushState=true;location.getargs={'test': 'true', 'from': 'object', 'pushState': true};window.getargs.options.pushState=false;">Set getargs to object using history.pushState</button></li>
 		<li><button onclick="window.getargs.options.pushState=true;location.getargs='test=true&from=string&pushState=true';window.getargs.options.pushState=false;">Set getargs to string using history.pushState</button></li>
 		<li><button onclick="window.getargs.options.pushState=true;location.getargs=undefined;window.getargs.options.pushState=false;">Set getargs to undefined using history.pushState</button></li>
+		<li><button onclick="window.getargs.options.pushState=true;window.getargs.remove('test');window.getargs.options.pushState=false;">Remove 'test' using history.pushState</button></li>
 	</ul>
 	<script src="getargs.js"></script>
 	<script>

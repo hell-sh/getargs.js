@@ -8,7 +8,7 @@ A Javascript library for easily reading and modifying GET arguments.
 
 You can either load the script from cdn.hell.sh using
 
-    <script src="https://cdn.hell.sh/getargs.js/1.2/getargs.js" integrity="sha384-0ICTc2hkA+jObawYcAu76Pzz4F/nY+xnMBC4feAlEVg3PDS8woW5RuhT977+0s4K" crossorigin="anonymous"></script>
+    <script src="https://cdn.hell.sh/getargs.js/1.3/getargs.js" integrity="sha384-75nPgIj7miANv4WfaIVYXRX2vmZCLpNWQ5DXmsAwUPj2sig3yHrtft1Pgp8JXwUy" crossorigin="anonymous"></script>
 
 or [download the getargs.js](https://raw.githubusercontent.com/hellshltd/getargs.js/master/getargs.js) and host it yourself.
 
@@ -20,9 +20,13 @@ You can get a single property using `window.getargs.get(key);` or `window.locati
 
 ## Writing
 
-You can set the getargs to `undefined`, a string, or an object using `window.getargs.set(value);` or `window.location.getargs = value;`.
+You can set the getargs to `undefined`, a string, or an object, using `window.getargs.set(value);` or `window.location.getargs = value;`.
 
 You can set a single property using `window.getargs.set(key, value);`, which returns `window.getargs` allowing for code such as `window.getargs.set("key1", "value1").set("key2", "value2");`
+
+## Unsetting
+
+You can delete a key using `window.getargs.remove(key)`.
 
 ## Events
 
@@ -44,3 +48,4 @@ You can modify the options by accessing the `window.getargs.options` object. The
 - `window.getargs.searchToObject(search)` turns a string such as `?test=true` in an object such as `{"test":"true"}`.
 - `window.getargs.objectToSearch(object)` turns an object such as `{"test":"true"}` in a string such as `test=true`.
 - `window.getargs.fixLinks()` turns all links with a href such as `?test=true` into links which will call `window.getargs.set(href)`. This is only useful if you have `window.getargs.options.pushState` enabled.
+- `window.getargs.updateSearch(object)` updates the `window.location.search` to reflect the given object. This is similar to using `window.getargs.set(object);` or `window.location.getargs = object;`.
