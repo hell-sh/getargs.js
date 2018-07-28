@@ -2,7 +2,7 @@
 
 A Javascript library for easily reading and modifying GET arguments.
 
-[View the demo.](https://hellshltd.github.io/getargs.js/)
+[View the demo.](https://hell-sh.github.io/getargs.js/)
 
 ## Installing
 
@@ -10,7 +10,7 @@ You can either load the script from cdn.hell.sh using
 
     <script src="https://cdn.hell.sh/getargs.js/1.3/getargs.js" integrity="sha384-75nPgIj7miANv4WfaIVYXRX2vmZCLpNWQ5DXmsAwUPj2sig3yHrtft1Pgp8JXwUy" crossorigin="anonymous"></script>
 
-or [download the getargs.js](https://raw.githubusercontent.com/hellshltd/getargs.js/master/getargs.js) and host it yourself.
+or [download the getargs.js](https://raw.githubusercontent.com/hell-sh/getargs.js/master/getargs.js) and host it yourself.
 
 ## Reading
 
